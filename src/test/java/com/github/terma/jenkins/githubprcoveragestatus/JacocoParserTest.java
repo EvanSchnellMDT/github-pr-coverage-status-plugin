@@ -75,7 +75,8 @@ public class JacocoParserTest {
                             "        \"report.dtd\">\n" +
                             "<report name=\"GitHub Pull Request Coverage Status\">\n" +
                             "</report>",
-                    messageWithoutAbsolutePath);
+                    //Handle Windows and *nix
+                    messageWithoutAbsolutePath.replaceAll("\\r",""));
         }
     }
 
@@ -99,7 +100,8 @@ public class JacocoParserTest {
                             "<report name=\"GitHub Pull Request Coverage Status\">\n" +
                             "    <counter type=\"LINE\" missed=\"X\" covered=\"0\"/>\n" +
                             "</report>",
-                    messageWithoutAbsolutePath);
+                    //Handle Windows and *nix
+                    messageWithoutAbsolutePath.replaceAll("\\r",""));
         }
     }
 
@@ -123,7 +125,9 @@ public class JacocoParserTest {
                             "<report name=\"GitHub Pull Request Coverage Status\">\n" +
                             "    <counter type=\"LINE\" missed=\"0\" covered=\"X\"/>\n" +
                             "</report>",
-                    messageWithoutAbsolutePath);
+
+                    //Handle Windows and *nix
+                    messageWithoutAbsolutePath.replaceAll("\\r",""));
         }
     }
 
